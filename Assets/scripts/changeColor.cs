@@ -6,15 +6,15 @@ public class changeColor : MonoBehaviour
 {
     public void Red()
     {
-        GetComponent<Renderer>().material.color = Color.red;
+        gameObject.GetComponent<Renderer>().material.color = Color.red;
     }
     public void Blue()
     {
-        GetComponent<Renderer>().material.color = Color.blue;
+        gameObject.GetComponent<Renderer>().material.color = Color.blue;
     }
     public void Black()
     {
-        GetComponent<Renderer>().material.color = Color.black;
+        gameObject.GetComponent<Renderer>().material.color = Color.black;
     }
 
 }
