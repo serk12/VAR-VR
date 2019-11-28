@@ -2,48 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Teleport : MonoBehaviour
+public class Teleport : TimeClick
 {
     public GameObject player;
 
-
-    private float waitTime = 0.5f;
-    private float timer = 0.0f;
-
-    private int counter = 0;
-    private bool focus = false;
-
-    void Start() {}
-
-    void Update()
+    public override void Start()
     {
-        timer += Time.deltaTime;
-        if (timer > waitTime)
-        {
-          if (focus){
-              ++counter;
-              if (counter > 5){
-                  player.GetComponent<Transform>().position = new Vector3(transform.position.x,1.0f, transform.position.z);
-                  counter = 0;
-                  focus = false;
-              }
-          }
-          // Remove the recorded 2 seconds.
-          timer = timer - waitTime;
-        }
+        waitTime = 0.1f;
+        topCounter = 8;
     }
 
-    public void enter()
+    public override void clickEvent()
     {
-        focus = true;
-        counter = 0;
-        Debug.Log(transform.position.z);
-        Debug.Log(transform.position.x);
-    }
-
-    public void exit()
-    {
-        focus = false;
-        counter = 0;
+        player.GetComponent<Transform>().position = new Vector3(transform.position.x,1.0f, transform.position.z);
     }
 }
