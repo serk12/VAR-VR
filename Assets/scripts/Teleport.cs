@@ -14,6 +14,6 @@ public class Teleport : TimeClick
 
     public override void clickEvent()
     {
-        player.GetComponent<Transform>().position = new Vector3(transform.position.x,1.0f, transform.position.z);
+        player.GetComponent<Transform>().position = new Vector3(transform.position.x, player.GetComponent<Transform>().position.y, transform.position.z);
     }
 }
