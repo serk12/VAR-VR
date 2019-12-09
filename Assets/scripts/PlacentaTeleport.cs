@@ -14,50 +14,60 @@ public class PlacentaTeleport : MonoBehaviour
 
         public void Start()
         {
-        VRLogic.mode = VRLogic.NAVIGATION_OUT;
+            VRLogic.mode = VRLogic.NAVIGATION_OUT;
         }
 
         public void clickOnPlacenta()
-    {
-        if (VRLogic.mode == VRLogic.NAVIGATION_OUT)
         {
-            Debug.Log("NAVIGATION_OUT to NAVIGATION_IN");
-
-            GameObject.Find("ModeText").GetComponent<Text>().text = "NAVIGATION THROUGH PLACENTA";
-            VRLogic.mode = VRLogic.NAVIGATION_IN;
-            player.GetComponent<Transform>().position = new Vector3(transform.position.x, transform.position.y + 0.15f, transform.position.z);
-            Camera cam = Camera.main;
-            cam.nearClipPlane = 0.01f;
-            GameObject tpgrid = GameObject.Find("tp_grid");
-            Transform[] children = tpgrid.GetComponentsInChildren<Transform>();
-            float offsetx = 0.1f;
-            float offsety = 0.1f;
-            float offsetz = 0.1f;
-            foreach (Transform child in children)
+            if (VRLogic.mode == VRLogic.NAVIGATION_OUT)
             {
-                if (child.name == "tp_sphere_X") child.position = new Vector3(transform.position.x + offsetx, player.transform.position.y - offsety, transform.position.z + offsetz);
-                if (child.name == "tp_sphere_-X") child.position = new Vector3(transform.position.x - offsetx, player.transform.position.y - offsety, transform.position.z + offsetz);
-                if (child.name == "tp_sphere_Z") child.position = new Vector3(transform.position.x + offsetx, player.transform.position.y - offsety, transform.position.z - offsetz);
-                if (child.name == "tp_sphere_-Z") child.position = new Vector3(transform.position.x - offsetx, player.transform.position.y - offsety, transform.position.z - offsetz);
+                Debug.Log("NAVIGATION_OUT to NAVIGATION_IN");
 
-                child.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                GameObject.Find("ModeText").GetComponent<Text>().text = "NAVIGATION THROUGH PLACENTA";
+                VRLogic.mode = VRLogic.NAVIGATION_IN;
+                player.GetComponent<Transform>().position = new Vector3(transform.position.x, transform.position.y + 0.175f, transform.position.z);
+                Camera cam = Camera.main;
+                cam.nearClipPlane = 0.01f;
+                GameObject tpgrid = GameObject.Find("tp_grid");
+                tpgrid.GetComponent<Transform>().localScale = new Vector3(0.1f,0.1f,0.1f);
+                tpgrid.GetComponent<Transform>().localPosition = new Vector3(0.0f,-0.105f,0.0f);
+            }
+            else if (VRLogic.mode == VRLogic.NAVIGATION_IN)
+            {
+                Debug.Log("NAVIGATION_IN");
+
+                //Object POISelectionButton = AssetDatabase.LoadAssetAtPath("Assets/models/prefabs/POISelectionModeButton.prefab", typeof(GameObject));
+                //GameObject POISelectionButton = (Transform)Resources.Load("Assets/models/prefabs/POISelectionModeButton.prefab", typeof(Transform));
+                //Instantiate(POISelectionButton, transform.position, Quaternion.identity);
+
+            }
+            else if (VRLogic.mode == VRLogic.POI_LOCATION)
+            {
+                Debug.Log("POI_LOCATION");
+
             }
         }
-        else if (VRLogic.mode == VRLogic.NAVIGATION_IN)
+
+        public void clickOnPartner()
         {
-            Debug.Log("NAVIGATION_IN");
+            if (VRLogic.mode == VRLogic.NAVIGATION_IN)
+            {
+                Debug.Log("NAVIGATION_IN to NAVIGATION_OUT");
 
-            Object POISelectionButton = AssetDatabase.LoadAssetAtPath("Assets/models/prefabs/POISelectionModeButton.prefab", typeof(GameObject));
-            //GameObject POISelectionButton = (Transform)Resources.Load("Assets/models/prefabs/POISelectionModeButton.prefab", typeof(Transform));
-            Instantiate(POISelectionButton, transform.position, Quaternion.identity);
+                GameObject.Find("ModeText").GetComponent<Text>().text = "NAVIGATION THROUGH ROOM";
+                VRLogic.mode = VRLogic.NAVIGATION_IN;
+                player.GetComponent<Transform>().position = new Vector3(transform.position.x - 3, 2.2f, transform.position.z);
+                Camera cam = Camera.main;
+                cam.nearClipPlane = 0.01f;
+                GameObject tpgrid = GameObject.Find("tp_grid");
+                tpgrid.GetComponent<Transform>().localScale = new Vector3(1.0f,1.0f,1.0f);
+                tpgrid.GetComponent<Transform>().localPosition = new Vector3(0.0f,-1f,0.0f);
+            }
+            else if (VRLogic.mode == VRLogic.NAVIGATION_OUT)
+            {
+                Debug.Log("NAVIGATION_OUT");
 
+            }
         }
-        else if (VRLogic.mode == VRLogic.POI_LOCATION)
-        {
-            Debug.Log("POI_LOCATION");
 
-        }
-    }
-   
 }
-

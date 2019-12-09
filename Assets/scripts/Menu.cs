@@ -66,9 +66,8 @@ public class Menu : MonoBehaviour
         Vector3 resultingPosition = cam.transform.position + direction * distanceFromCamera;
         transform.position = resultingPosition;
         //transform.LookAt(cam.transform);
-        transform.Rotate(0, 0, 40);
+        // transform.Rotate(0, 0, 40);
 
     }
 
 }
-
