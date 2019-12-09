@@ -10,7 +10,10 @@ public static class VRLogic
     public const int NAVIGATION_OUT = 0;
     public const int NAVIGATION_IN = 1;
     public const int POI_LOCATION = 2;
-    
+    public const int SCALATION = 3;
+    public const int ROTATION = 4;
+    public const int MOVEMENT = 5;
+
 
 
 }

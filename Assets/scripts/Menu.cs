@@ -15,29 +15,102 @@ public class Menu : MonoBehaviour
         VRLogic.mode = VRLogic.NAVIGATION_OUT;
     }
 
-    public void clickOnPOISelectionModeButton()
+    public void clickOnModeButton()
     {
-        if (VRLogic.mode == VRLogic.NAVIGATION_IN)
+        if (name == "POISelectionButton")
         {
-            Debug.Log("NAVIGATION_IN to POI_LOCATION");
-            VRLogic.mode = VRLogic.POI_LOCATION;
+
+            if (VRLogic.mode == VRLogic.NAVIGATION_IN)
+            {
+                Debug.Log("NAVIGATION_IN to POI_LOCATION");
+                VRLogic.mode = VRLogic.POI_LOCATION;
+            }
+        }
+        else if (name == "ExitButton")
+        {
+            if (VRLogic.mode == VRLogic.NAVIGATION_OUT)
+            {
+                //EXIT
+            }
+            else
+            {
+                VRLogic.mode = VRLogic.NAVIGATION_OUT;
+                //TODO: Move Camera and everything out
+            }
+        }
+        else if (name == "RotateButton")
+        {
+            VRLogic.mode = VRLogic.ROTATION;
+
+        }
+        else if (name == "ScaleButton")
+        {
+            VRLogic.mode = VRLogic.SCALATION;
+
+        }
+        else if (name == "MoveButton")
+        {
+            VRLogic.mode = VRLogic.MOVEMENT;
+
+        }
+        updateColorsOnButtons();
+        updateText();
+    }
+
+    public void updateText()
+    {
+        
+        if (VRLogic.mode == VRLogic.NAVIGATION_OUT)
+        {
+            GameObject.Find("ModeText").GetComponent<Text>().text = "SURGERY ROOM NAVIGATION";
+
         }
         else if (VRLogic.mode == VRLogic.NAVIGATION_IN)
         {
-            Debug.Log("NAVIGATION_IN");
+            GameObject.Find("ModeText").GetComponent<Text>().text = "PLACENTA NAVIGATION";
 
-            
         }
         else if (VRLogic.mode == VRLogic.POI_LOCATION)
         {
-            Debug.Log("POI_LOCATION");
-            Object POISelectionButton = AssetDatabase.LoadAssetAtPath("Assets/models/prefabs/POISelectionModeButton.prefab", typeof(GameObject));
-            //GameObject POISelectionButton = (Transform)Resources.Load("Assets/models/prefabs/POISelectionModeButton.prefab", typeof(Transform));
-            Instantiate(POISelectionButton, transform.position, Quaternion.identity);
+            GameObject.Find("ModeText").GetComponent<Text>().text = "POI SELECTION";
 
         }
+        else if (VRLogic.mode == VRLogic.ROTATION)
+        {
+            GameObject.Find("ModeText").GetComponent<Text>().text = "ROTATE OBJECTS";
+
+        }
+        else if (VRLogic.mode == VRLogic.SCALATION)
+        {
+            GameObject.Find("ModeText").GetComponent<Text>().text = "SCALE OBJECTS";
+            
+        }
+        else if (VRLogic.mode == VRLogic.MOVEMENT)
+        {
+            GameObject.Find("ModeText").GetComponent<Text>().text = "MOVE OBJECTS";
+            
+
+        }
+
+
     }
 
+    public void updateColorsOnButtons()
+    {
+
+        if (VRLogic.mode == VRLogic.POI_LOCATION)
+        {
+            Texture2D grey = (Texture2D)AssetDatabase.LoadAssetAtPath("Assets/models/blenders/Menu/grey_marker.png", typeof(Texture2D));
+            GameObject.Find("POISelectionButton").GetComponent<Renderer>().material.mainTexture = grey;
+            
+        }
+        else {
+            Texture2D green = (Texture2D)AssetDatabase.LoadAssetAtPath("Assets/models/blenders/Menu/green_marker.png", typeof(Texture2D));
+            GameObject.Find("POISelectionButton").GetComponent<Renderer>().material.mainTexture = green;
+        }
+        
+        
+    }
     public void Update()
     {
         /*Camera cam = Camera.main;
