@@ -14,8 +14,8 @@ public class SelectAndTransform : MonoBehaviour
 
 	void Update()
 	{
-		//if (Input.GetMouseButtonDown(0))
-		//{
+		if (VRLogic.mode == VRLogic.SCALATION || VRLogic.mode == VRLogic.ROTATION  || VRLogic.mode == VRLogic.MOVEMENT)
+		{
 			RaycastHit hitInfo = new RaycastHit();
 			bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo);
 			if (hit){
@@ -28,7 +28,7 @@ public class SelectAndTransform : MonoBehaviour
 					axis_go.transform.localScale = new Vector3(scale,scale, scale);
 				}
 			}
-		//}
+		}
 	}
 
 }
