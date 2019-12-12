@@ -23,10 +23,10 @@ public class AxisLogic : MonoBehaviour
 				if(VRLogic.mode == VRLogic.SCALATION)
 					parent.transform.localScale += add;
 				if(VRLogic.mode == VRLogic.MOVEMENT)
-					parent.transform.localPosition += add;
+					parent.transform.localPosition += (add*5);
 				if(VRLogic.mode == VRLogic.ROTATION){
 					Vector3 rot = parent.transform.localRotation.eulerAngles;
-					rot = rot + add;
+					rot = rot + (add*50);
 					parent.transform.localRotation = Quaternion.Euler(rot);
 				}
 			}

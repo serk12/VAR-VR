@@ -14,11 +14,10 @@ public class SelectAndTransform : MonoBehaviour
 
 	void Update()
 	{
-		if (VRLogic.mode == VRLogic.SCALATION || VRLogic.mode == VRLogic.ROTATION  || VRLogic.mode == VRLogic.MOVEMENT)
-		{
+		if (VRLogic.mode == VRLogic.SCALATION || VRLogic.mode == VRLogic.ROTATION  || VRLogic.mode == VRLogic.MOVEMENT) {
 			RaycastHit hitInfo = new RaycastHit();
 			bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo);
-			if (hit){
+			if (hit) {
 				GameObject selected = GameObject.Find(hitInfo.transform.gameObject.name);
 				if(selected.transform.Find("axis(Clone)") == null && selected.tag != "noMove") {
 					GameObject axis_go = Instantiate(axis, selected.transform.position, Quaternion.identity) as GameObject;
@@ -27,6 +26,12 @@ public class SelectAndTransform : MonoBehaviour
 					float scale = 0.3f;
 					axis_go.transform.localScale = new Vector3(scale,scale, scale);
 				}
+			}
+		}
+		else {
+			GameObject[] allAxis = GameObject.FindGameObjectsWithTag("axis");
+			foreach(GameObject ax in allAxis) {
+				Destroy(ax);
 			}
 		}
 	}

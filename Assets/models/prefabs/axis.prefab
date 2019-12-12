@@ -416,7 +416,7 @@ GameObject:
   - component: {fileID: 5800889848044453391}
   m_Layer: 0
   m_Name: axis
-  m_TagString: Untagged
+  m_TagString: axis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
