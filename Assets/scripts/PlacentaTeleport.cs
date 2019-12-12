@@ -44,9 +44,21 @@ public class PlacentaTeleport : MonoBehaviour
             else if (VRLogic.mode == VRLogic.POI_LOCATION)
             {
                 Debug.Log("POI_LOCATION");
+            RaycastHit hitInfo = new RaycastHit();
+            bool hit = Physics.Raycast(Camera.main.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0)), out hitInfo);
+            GameObject teleportPointer = GameObject.Find("TeleportPointer");
+            if (hit)
+            {
+                GameObject poi = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/models/prefabs/POI.prefab", typeof(GameObject));
 
+                //Transform POISelectionButton = (Transform)Resources.Load("Assets/models/prefabs/POISelectionModeButton.prefab", typeof(Transform));
+                
+                GameObject x = Instantiate(poi);
+                x.transform.position = hitInfo.point;
             }
+
         }
+    }
 
         public void clickOnPartner()
         {

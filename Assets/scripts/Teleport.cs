@@ -17,5 +17,6 @@ public class Teleport : TimeClick
         player.GetComponent<Transform>().position = new Vector3(transform.position.x, player.GetComponent<Transform>().position.y, transform.position.z);
     }
 
+   
 
 }

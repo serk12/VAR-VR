@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4465785, g: 0.49641252, b: 0.574817, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -243,7 +243,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates: []
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 236909646}
+          m_MethodName: teleport
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &236909646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,9 +268,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 236909641}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac97904048918a94e956ac244417d04e, type: 3}
+  m_Script: {fileID: 11500000, guid: d6462fbbb91abfb4b913cb44d86fd0cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 254746266}
 --- !u!1 &254746266
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,7 +332,7 @@ PrefabInstance:
     - target: {fileID: 1442993083699618851, guid: 7097b31b0f0e25aa9a7e7fc8b2782912,
         type: 3}
       propertyPath: m_Name
-      value: floor
+      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 1442993083699618855, guid: 7097b31b0f0e25aa9a7e7fc8b2782912,
         type: 3}
@@ -396,6 +412,75 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 305382764}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &456372501
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5485964165660021610, guid: 9e42fc64f254e98449c20b62d24520ca,
+        type: 3}
+      propertyPath: m_Name
+      value: TeleportPointer
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447033236434912494, guid: 9e42fc64f254e98449c20b62d24520ca,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447033236434912494, guid: 9e42fc64f254e98449c20b62d24520ca,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447033236434912494, guid: 9e42fc64f254e98449c20b62d24520ca,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447033236434912494, guid: 9e42fc64f254e98449c20b62d24520ca,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447033236434912494, guid: 9e42fc64f254e98449c20b62d24520ca,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447033236434912494, guid: 9e42fc64f254e98449c20b62d24520ca,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447033236434912494, guid: 9e42fc64f254e98449c20b62d24520ca,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447033236434912494, guid: 9e42fc64f254e98449c20b62d24520ca,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447033236434912494, guid: 9e42fc64f254e98449c20b62d24520ca,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447033236434912494, guid: 9e42fc64f254e98449c20b62d24520ca,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447033236434912494, guid: 9e42fc64f254e98449c20b62d24520ca,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9e42fc64f254e98449c20b62d24520ca, type: 3}
 --- !u!1001 &488662615
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -776,7 +861,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: -2.9862908e+16, z: 6.17e-43, w: -2.9862908e+16}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -926,6 +1011,53 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 884882123}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &903358849 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5485964165660021610, guid: 9e42fc64f254e98449c20b62d24520ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 456372501}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &903358854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903358849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6462fbbb91abfb4b913cb44d86fd0cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 254746266}
+--- !u!114 &903358855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903358849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 903358854}
+          m_MethodName: teleport
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &925394406
 PrefabInstance:
   m_ObjectHideFlags: 0
