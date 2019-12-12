@@ -20,7 +20,7 @@ public class SelectAndTransform : MonoBehaviour
 			bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo);
 			if (hit){
 				GameObject selected = GameObject.Find(hitInfo.transform.gameObject.name);
-				if(selected.transform.Find("axis(Clone)") == null) {
+				if(selected.transform.Find("axis(Clone)") == null && selected.tag != "noMove") {
 					GameObject axis_go = Instantiate(axis, selected.transform.position, Quaternion.identity) as GameObject;
 					axis_go.transform.parent = selected.transform;
 					axis_go.transform.LookAt(gameObject.transform);
