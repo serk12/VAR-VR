@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class PlacentaTeleport : MonoBehaviour
 {
     public GameObject player;
-
+    public GameObject poi;
 
         public void Start()
         {
@@ -49,10 +49,6 @@ public class PlacentaTeleport : MonoBehaviour
             GameObject teleportPointer = GameObject.Find("TeleportPointer");
             if (hit)
             {
-                GameObject poi = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/models/prefabs/POI.prefab", typeof(GameObject));
-
-                //Transform POISelectionButton = (Transform)Resources.Load("Assets/models/prefabs/POISelectionModeButton.prefab", typeof(Transform));
-                
                 GameObject x = Instantiate(poi);
                 x.transform.position = new Vector3(hitInfo.point.x, hitInfo.point.y+0.0005f, hitInfo.point.z);
             }
