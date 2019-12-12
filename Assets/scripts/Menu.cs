@@ -40,17 +40,23 @@ public class Menu : MonoBehaviour
         }
         else if (name == "RotateButton")
         {
-            VRLogic.mode = VRLogic.ROTATION;
+            if(VRLogic.mode == VRLogic.ROTATION)
+                VRLogic.mode = VRLogic.ROTATION_NEG;
+            else VRLogic.mode = VRLogic.ROTATION;
 
         }
         else if (name == "ScaleButton")
         {
-            VRLogic.mode = VRLogic.SCALATION;
+            if(VRLogic.mode == VRLogic.SCALATION)
+                VRLogic.mode = VRLogic.SCALATION_NEG;
+            else VRLogic.mode = VRLogic.SCALATION;
 
         }
         else if (name == "MoveButton")
         {
-            VRLogic.mode = VRLogic.MOVEMENT;
+            if(VRLogic.mode == VRLogic.MOVEMENT)
+                VRLogic.mode = VRLogic.MOVEMENT_NEG;
+            else VRLogic.mode = VRLogic.MOVEMENT;
 
         }
         updateColorsOnButtons();
@@ -88,8 +94,20 @@ public class Menu : MonoBehaviour
         else if (VRLogic.mode == VRLogic.MOVEMENT)
         {
             GameObject.Find("ModeText").GetComponent<Text>().text = "MOVE OBJECTS";
+        }
+        else if (VRLogic.mode == VRLogic.ROTATION_NEG)
+        {
+            GameObject.Find("ModeText").GetComponent<Text>().text = "ROTATE OBJECTS NEGATIVE";
 
+        }
+        else if (VRLogic.mode == VRLogic.SCALATION_NEG)
+        {
+            GameObject.Find("ModeText").GetComponent<Text>().text = "SCALE OBJECTS NEGATIVE";
 
+        }
+        else if (VRLogic.mode == VRLogic.MOVEMENT_NEG)
+        {
+            GameObject.Find("ModeText").GetComponent<Text>().text = "MOVE OBJECTS NEGATIVE";
         }
 
 

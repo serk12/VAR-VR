@@ -14,7 +14,8 @@ public class SelectAndTransform : MonoBehaviour
 
 	void Update()
 	{
-		if (VRLogic.mode == VRLogic.SCALATION || VRLogic.mode == VRLogic.ROTATION  || VRLogic.mode == VRLogic.MOVEMENT) {
+		if (VRLogic.mode == VRLogic.SCALATION || VRLogic.mode == VRLogic.ROTATION  || VRLogic.mode == VRLogic.MOVEMENT ||
+			VRLogic.mode == VRLogic.SCALATION_NEG || VRLogic.mode == VRLogic.ROTATION_NEG  || VRLogic.mode == VRLogic.MOVEMENT_NEG) {
 			RaycastHit hitInfo = new RaycastHit();
 			bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo);
 			if (hit) {
