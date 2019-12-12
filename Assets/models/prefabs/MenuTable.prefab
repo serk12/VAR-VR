@@ -75,6 +75,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac97904048918a94e956ac244417d04e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grey: {fileID: 2800000, guid: dd4ebb115b97008428db0ea23d7b7600, type: 3}
+  blue: {fileID: 0}
+  green: {fileID: 2800000, guid: 1bf0cb2031097074b892b877cf7b2512, type: 3}
+  selfMode: 0
+  selfModeNeg: -1
 --- !u!114 &1378049269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,6 +120,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac97904048918a94e956ac244417d04e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grey: {fileID: 2800000, guid: 70b645b2afd4b7e4ba61e5eb51cf3764, type: 3}
+  blue: {fileID: 0}
+  green: {fileID: 2800000, guid: 8b790113bfc34e34e974d15dfd203071, type: 3}
+  selfMode: 2
+  selfModeNeg: -1
 --- !u!114 &465727670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,6 +165,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac97904048918a94e956ac244417d04e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grey: {fileID: 2800000, guid: 40f7357cbb92868429f69ed7ed23e241, type: 3}
+  blue: {fileID: 2800000, guid: 28c037cba221edb4c8146418a82812f1, type: 3}
+  green: {fileID: 2800000, guid: 68b1573492a2ae443aa491d66fc644a1, type: 3}
+  selfMode: 5
+  selfModeNeg: 6
 --- !u!114 &2114676960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,6 +210,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac97904048918a94e956ac244417d04e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grey: {fileID: 2800000, guid: 76570e4a4c4e4ad4482790844dd07b29, type: 3}
+  blue: {fileID: 2800000, guid: 6c83d41b2f81da743a1da0feffe73088, type: 3}
+  green: {fileID: 2800000, guid: 380a8a17e6d8cce4ea395fb903df304c, type: 3}
+  selfMode: 3
+  selfModeNeg: 4
 --- !u!114 &865203225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,6 +255,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac97904048918a94e956ac244417d04e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grey: {fileID: 2800000, guid: 35e84877728b61847b3b4ca1f823ccbc, type: 3}
+  blue: {fileID: 2800000, guid: 7f82e05d8b633364bb46768c56110188, type: 3}
+  green: {fileID: 2800000, guid: b820b4b3a7dff974e8032db9c9a0d543, type: 3}
+  selfMode: 7
+  selfModeNeg: 8
 --- !u!1 &4456769752058627023
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,16 +379,16 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-    - target: {fileID: 6924721715804833035, guid: 8d59b81297485d84f8bc0c8758e8852a,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7924380789924925151, guid: 8d59b81297485d84f8bc0c8758e8852a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 790118af7ffd319409b3dea79a25caa0, type: 2}
+    - target: {fileID: 6924721715804833035, guid: 8d59b81297485d84f8bc0c8758e8852a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6924721715804833035, guid: 8d59b81297485d84f8bc0c8758e8852a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8d59b81297485d84f8bc0c8758e8852a, type: 3}
