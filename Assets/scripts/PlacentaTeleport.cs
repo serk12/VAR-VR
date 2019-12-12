@@ -33,7 +33,7 @@ public class PlacentaTeleport : MonoBehaviour
             }
             else if (VRLogic.mode == VRLogic.POI_LOCATION) {
             RaycastHit hitInfo = new RaycastHit();
-            bool hit = Physics.Raycast(Camera.main.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0)), out hitInfo);
+            bool hit = Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo);
             GameObject teleportPointer = GameObject.Find("TeleportPointer");
             if (hit)
             {

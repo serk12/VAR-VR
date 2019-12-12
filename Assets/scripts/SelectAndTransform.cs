@@ -15,7 +15,7 @@ public class SelectAndTransform : MonoBehaviour
 		if (VRLogic.mode == VRLogic.SCALATION || VRLogic.mode == VRLogic.ROTATION  || VRLogic.mode == VRLogic.MOVEMENT ||
 			VRLogic.mode == VRLogic.SCALATION_NEG || VRLogic.mode == VRLogic.ROTATION_NEG  || VRLogic.mode == VRLogic.MOVEMENT_NEG) {
 			RaycastHit hitInfo = new RaycastHit();
-			bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo);
+	        bool hit = Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo);
 			if (hit) {
 				GameObject selected = GameObject.Find(hitInfo.transform.gameObject.name);
 				if(selected.transform.Find("axis(Clone)") == null && selected.tag != "noMove") {

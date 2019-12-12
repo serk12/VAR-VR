@@ -15,7 +15,7 @@ public class FloorTeleport : MonoBehaviour
     public void teleport()
     {
         RaycastHit hitInfo = new RaycastHit();
-        bool hit = Physics.Raycast(Camera.main.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0)), out hitInfo);
+        bool hit = Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo);
         if (hit) {
             player.GetComponent<Transform>().position = new Vector3(hitInfo.point.x, player.GetComponent<Transform>().position.y, hitInfo.point.z);
         }
@@ -24,7 +24,7 @@ public class FloorTeleport : MonoBehaviour
     public void Update()
     {
         RaycastHit hitInfo = new RaycastHit();
-        bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo);
+        bool hit = Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo);
         if (hit)
         {
             if (hitInfo.transform.gameObject.name == "Floor")
