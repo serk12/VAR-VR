@@ -25,20 +25,13 @@ public class Menu : MonoBehaviour
     {
         if (name == "POISelectionButton")
         {
-            Debug.Log("NAVIGATION_IN to POI_LOCATION");
             VRLogic.mode = VRLogic.POI_LOCATION;
         }
         else if (name == "ExitButton")
         {
-            if (VRLogic.mode == VRLogic.NAVIGATION_OUT)
-            {
-                //EXIT
-            }
-            else
-            {
-                VRLogic.mode = VRLogic.NAVIGATION_OUT;
-                //TODO: Move Camera and everything out
-            }
+            VRLogic.mode = VRLogic.NAVIGATION_OUT;
+            Vector3 pos = new Vector3(1.0f, 2.2f, 0.0f);
+            (GameObject.FindWithTag("placenta")).GetComponent<PlacentaTeleport>().tpNavigationOut(pos);
         }
         else if (name == "RotateButton")
         {
@@ -61,7 +54,6 @@ public class Menu : MonoBehaviour
             else VRLogic.mode = VRLogic.MOVEMENT;
 
         }
-        updateText();
     }
 
     public void updateText()
@@ -130,16 +122,8 @@ public class Menu : MonoBehaviour
     }
     public void Update()
     {
-
+        updateText();
         updateColorsOnButtons();
-        /*Camera cam = Camera.main;
-        float distanceFromCamera = 2.0f;
-        //Vector3 direction = Quaternion.AngleAxis(-45, Vector3.up) * cam.transform.forward;
-        Vector3 direction = cam.transform.forward;
-        Vector3 resultingPosition = cam.transform.position + direction * distanceFromCamera;
-        transform.position = resultingPosition;
-        //transform.LookAt(cam.transform);
-        // transform.Rotate(0, 0, 40); */
 
     }
 

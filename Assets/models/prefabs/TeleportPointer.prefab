@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 8400401348195699739}
   - component: {fileID: 3835709315834367702}
   m_Layer: 0
-  m_Name: TeleportPointer 1
-  m_TagString: Untagged
+  m_Name: TeleportPointer
+  m_TagString: noMove
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
