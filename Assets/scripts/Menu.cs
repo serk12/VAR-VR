@@ -97,7 +97,7 @@ public class Menu : MonoBehaviour
 
     public void updateColorsOnButtons()
     {
-
+        /* FIX THIS IS NOT ANDROID COMPATIBLE
         if (VRLogic.mode == VRLogic.POI_LOCATION)
         {
             Texture2D grey = (Texture2D)AssetDatabase.LoadAssetAtPath("Assets/models/blenders/Menu/grey_marker.png", typeof(Texture2D));
@@ -108,7 +108,7 @@ public class Menu : MonoBehaviour
             Texture2D green = (Texture2D)AssetDatabase.LoadAssetAtPath("Assets/models/blenders/Menu/green_marker.png", typeof(Texture2D));
             GameObject.Find("POISelectionButton").GetComponent<Renderer>().material.mainTexture = green;
         }
-
+        */
 
     }
     public void Update()
