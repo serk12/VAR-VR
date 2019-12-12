@@ -9,6 +9,12 @@ using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
+    public Texture2D grey;
+    public Texture2D blue;
+    public Texture2D green;
+
+    public int selfMode;
+    public int selfModeNeg;
 
     public void Start()
     {
@@ -19,12 +25,8 @@ public class Menu : MonoBehaviour
     {
         if (name == "POISelectionButton")
         {
-
-            if (VRLogic.mode == VRLogic.NAVIGATION_IN)
-            {
-                Debug.Log("NAVIGATION_IN to POI_LOCATION");
-                VRLogic.mode = VRLogic.POI_LOCATION;
-            }
+            Debug.Log("NAVIGATION_IN to POI_LOCATION");
+            VRLogic.mode = VRLogic.POI_LOCATION;
         }
         else if (name == "ExitButton")
         {
@@ -40,20 +42,25 @@ public class Menu : MonoBehaviour
         }
         else if (name == "RotateButton")
         {
-            VRLogic.mode = VRLogic.ROTATION;
+            if(VRLogic.mode == VRLogic.ROTATION)
+                VRLogic.mode = VRLogic.ROTATION_NEG;
+            else VRLogic.mode = VRLogic.ROTATION;
 
         }
         else if (name == "ScaleButton")
         {
-            VRLogic.mode = VRLogic.SCALATION;
+            if(VRLogic.mode == VRLogic.SCALATION)
+                VRLogic.mode = VRLogic.SCALATION_NEG;
+            else VRLogic.mode = VRLogic.SCALATION;
 
         }
         else if (name == "MoveButton")
         {
-            VRLogic.mode = VRLogic.MOVEMENT;
+            if(VRLogic.mode == VRLogic.MOVEMENT)
+                VRLogic.mode = VRLogic.MOVEMENT_NEG;
+            else VRLogic.mode = VRLogic.MOVEMENT;
 
         }
-        updateColorsOnButtons();
         updateText();
     }
 
@@ -88,8 +95,20 @@ public class Menu : MonoBehaviour
         else if (VRLogic.mode == VRLogic.MOVEMENT)
         {
             GameObject.Find("ModeText").GetComponent<Text>().text = "MOVE OBJECTS";
+        }
+        else if (VRLogic.mode == VRLogic.ROTATION_NEG)
+        {
+            GameObject.Find("ModeText").GetComponent<Text>().text = "ROTATE OBJECTS NEGATIVE";
 
+        }
+        else if (VRLogic.mode == VRLogic.SCALATION_NEG)
+        {
+            GameObject.Find("ModeText").GetComponent<Text>().text = "SCALE OBJECTS NEGATIVE";
 
+        }
+        else if (VRLogic.mode == VRLogic.MOVEMENT_NEG)
+        {
+            GameObject.Find("ModeText").GetComponent<Text>().text = "MOVE OBJECTS NEGATIVE";
         }
 
 
@@ -97,22 +116,22 @@ public class Menu : MonoBehaviour
 
     public void updateColorsOnButtons()
     {
-
-        if (VRLogic.mode == VRLogic.POI_LOCATION)
-        {
-            Texture2D grey = (Texture2D)AssetDatabase.LoadAssetAtPath("Assets/models/blenders/Menu/grey_marker.png", typeof(Texture2D));
-            GameObject.Find("POISelectionButton").GetComponent<Renderer>().material.mainTexture = grey;
-
+        if (VRLogic.mode == selfMode && !(VRLogic.mode == selfModeNeg)) {
+            gameObject.GetComponent<Renderer>().material.mainTexture = grey;
+        }
+        else if(VRLogic.mode == selfModeNeg) {
+            gameObject.GetComponent<Renderer>().material.mainTexture = blue;
         }
         else {
-            Texture2D green = (Texture2D)AssetDatabase.LoadAssetAtPath("Assets/models/blenders/Menu/green_marker.png", typeof(Texture2D));
-            GameObject.Find("POISelectionButton").GetComponent<Renderer>().material.mainTexture = green;
+            gameObject.GetComponent<Renderer>().material.mainTexture = green;
         }
 
 
     }
     public void Update()
     {
+
+        updateColorsOnButtons();
         /*Camera cam = Camera.main;
         float distanceFromCamera = 2.0f;
         //Vector3 direction = Quaternion.AngleAxis(-45, Vector3.up) * cam.transform.forward;

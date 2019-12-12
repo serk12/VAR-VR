@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2529212544756368937}
   - component: {fileID: 504666712253635960}
   - component: {fileID: 7165915272355643079}
+  - component: {fileID: 8500866911795302830}
   m_Layer: 0
   m_Name: molteni_c_less
   m_TagString: Untagged
@@ -78,6 +79,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &8500866911795302830
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5183442970650864697}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 6895103690441789122, guid: 4284cef892c4005968b11a3d62f31ab8, type: 3}
 --- !u!1 &8193776767521994791
 GameObject:
   m_ObjectHideFlags: 0
